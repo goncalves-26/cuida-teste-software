@@ -1,50 +1,32 @@
-# CUIDA+ — MVP para Testes de Software
+# CUIDA+ — Teste de Software
 
-Este projeto contém um MVP simples do sistema **CUIDA+**, criado para executar os testes documentados na Wiki da disciplina **Teste de Software**.
+Projeto acadêmico da disciplina **Teste de Software**, desenvolvido para apoiar a documentação e execução dos testes da atividade 
 
-O objetivo principal não é criar um sistema grande, mas sim permitir a execução prática de:
+O sistema **CUIDA+** tem como tema o cuidado familiar compartilhado da saúde de idosos.
 
-- Testes de API com Postman;
-- Testes automatizados de interface com Robot Framework + SeleniumLibrary;
-- Geração de evidências para a Wiki e para a entrega da N2 AT1.
+## Objetivo
+
+Este repositório contém um MVP simples utilizado para executar:
+
+* testes de API com Postman;
+* testes automatizados de interface com Robot Framework e SeleniumLibrary;
+* evidências dos testes documentados na Wiki.
+
+A documentação principal do trabalho está disponível na aba **Wiki** deste repositório.
 
 ## Estrutura do projeto
 
 ```text
-backend/        API em Node.js/Express
-frontend/       Telas HTML do sistema
-robot-tests/    Testes automatizados de interface
-postman/        Coleção do Postman
-evidencias/     Pasta para salvar prints e relatórios
+backend/            API em Node.js/Express
+frontend/           Telas do sistema
+postman/            Collection dos testes de API
+robot-tests/        Testes automatizados de interface
+teste evidencias/   Prints e evidências dos testes
 ```
 
-## Endpoints da API
+## Como executar o sistema
 
-Com o backend rodando, a API fica disponível em:
-
-```text
-http://localhost:8080
-```
-
-Endpoints usados nos testes:
-
-```text
-POST /api/usuarios
-POST /api/idosos
-```
-
-## Telas do frontend
-
-Com o frontend rodando, as telas ficam disponíveis em:
-
-```text
-http://localhost:3000/cadastro
-http://localhost:3000/idosos/novo
-```
-
-## Ordem de execução
-
-### 1. Rodar o backend
+### 1. Back-end
 
 Abra um terminal na pasta `backend` e execute:
 
@@ -53,7 +35,13 @@ npm install
 npm start
 ```
 
-### 2. Rodar o frontend
+A API ficará disponível em:
+
+```text
+http://localhost:8080
+```
+
+### 2. Front-end
 
 Abra outro terminal na pasta `frontend` e execute:
 
@@ -62,41 +50,67 @@ npm install
 npm start
 ```
 
-### 3. Executar testes de API
-
-Importe no Postman o arquivo:
+O sistema ficará disponível em:
 
 ```text
-postman/CUIDA.postman_collection.json
+http://localhost:3000
 ```
 
-Depois execute as requisições com o backend rodando.
+## Testes de API
 
-### 4. Executar testes de interface
+Os testes de API foram executados no **Postman**.
 
-Instale as dependências Python:
-
-```bash
-pip install -r robot-tests/requirements.txt
-```
-
-Depois, com backend e frontend rodando, entre na pasta `robot-tests` e execute:
-
-```bash
-robot cadastro_usuario.robot
-robot cadastro_idoso.robot
-```
-
-Os relatórios serão gerados na pasta `robot-tests`:
+Collection utilizada:
 
 ```text
-report.html
-log.html
-output.xml
+postman/CUIDA.postman_collection_corrigida.json
 ```
+
+Endpoints testados:
+
+```text
+POST /api/usuarios
+POST /api/idosos
+```
+
+Testes documentados na Wiki:
+
+* CT-API-01 — Cadastro de usuário;
+* CT-API-03 — Cadastro de idoso.
+
+## Testes de interface
+
+Os testes de interface foram executados com **Robot Framework** e **SeleniumLibrary**.
+
+Para instalar as dependências:
+
+```bash
+python -m pip install -r robot-tests/requirements.txt
+```
+
+Para executar os testes, mantenha o back-end e o front-end rodando. Depois, entre na pasta `robot-tests` e execute:
+
+```bash
+python -m robot cadastro_usuario.robot
+python -m robot cadastro_idoso.robot
+```
+
+Testes documentados na Wiki:
+
+* CT-UI-01 — Cadastro de usuário pela interface;
+* CT-UI-03 — Cadastro de idoso pela interface.
+
+## Evidências
+
+As evidências dos testes estão na pasta:
+
+```text
+teste evidencias/
+```
+
+As páginas da Wiki apresentam a modelagem, implementação, execução e resultados dos testes.
 
 ## Observação
 
-As evidências devem ser registradas depois da execução real dos testes. Não foram adicionados resultados fictícios ao projeto.
-# cuida-teste-software
-Projeto acadêmico da disciplina Teste de Software — CUIDA+, sistema web para apoio ao cuidado familiar compartilhado da saúde de idosos.
+Este projeto possui finalidade acadêmica e foi desenvolvido para demonstrar a aplicação prática de técnicas de teste de software.
+
