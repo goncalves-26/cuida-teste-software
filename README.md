@@ -98,3 +98,5 @@ output.xml
 ## Observação
 
 As evidências devem ser registradas depois da execução real dos testes. Não foram adicionados resultados fictícios ao projeto.
+# cuida-teste-software
+Projeto acadêmico da disciplina Teste de Software — CUIDA+, sistema web para apoio ao cuidado familiar compartilhado da saúde de idosos.
