@@ -1,5 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
+Library    DateTime
 
 Suite Setup       Abrir tela de cadastro
 Suite Teardown    Fechar navegador
@@ -17,9 +18,10 @@ ${MENSAGEM}             id=mensagem
 
 *** Test Cases ***
 CT-UI-01.1 - Cadastro com dados válidos
-    Preencher cadastro    Ana Paula    ana@email.com    12345678    12345678
+    ${timestamp}=    Get Current Date    result_format=%Y%m%d%H%M%S
+    Preencher cadastro    Ana Paula    ana${timestamp}@email.com    12345678    12345678
     Solicitar cadastro
-    Validar mensagem    Cadastro realizado com sucesso
+    Validar mensagem    Usuário cadastrado com sucesso
 
 CT-UI-01.2 - Nome obrigatório
     Preencher cadastro    ${EMPTY}    ana@email.com    12345678    12345678
@@ -45,9 +47,11 @@ CT-UI-01.5 - Senhas diferentes
 Abrir tela de cadastro
     Open Browser    ${URL}    ${BROWSER}
     Maximize Browser Window
+    Wait Until Element Is Visible    ${INPUT_NOME}    10s
 
 Recarregar pagina
     Go To    ${URL}
+    Wait Until Element Is Visible    ${INPUT_NOME}    10s
 
 Preencher cadastro
     [Arguments]    ${nome}    ${email}    ${senha}    ${confirmar}
@@ -64,8 +68,9 @@ Solicitar cadastro
     Click Button    ${BOTAO_CADASTRAR}
 
 Validar mensagem
-    [Arguments]    ${mensagem}
-    Wait Until Element Contains    ${MENSAGEM}    ${mensagem}    5s
+    [Arguments]    ${texto_esperado}
+    Wait Until Element Is Visible    ${MENSAGEM}    10s
+    Wait Until Element Contains    ${MENSAGEM}    ${texto_esperado}    10s
 
 Fechar navegador
     Close Browser

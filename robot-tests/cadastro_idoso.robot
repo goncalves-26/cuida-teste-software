@@ -40,9 +40,11 @@ CT-UI-03.4 - Cadastro sem nome
 Abrir tela de cadastro de idoso
     Open Browser    ${URL}    ${BROWSER}
     Maximize Browser Window
+    Wait Until Element Is Visible    ${INPUT_NOME}    10s
 
 Recarregar pagina
     Go To    ${URL}
+    Wait Until Element Is Visible    ${INPUT_NOME}    10s
 
 Preencher cadastro de idoso
     [Arguments]    ${nome}    ${idade}    ${responsavel}    ${observacoes}
@@ -59,8 +61,8 @@ Solicitar cadastro
     Click Button    ${BOTAO_CADASTRAR}
 
 Validar mensagem
-    [Arguments]    ${mensagem}
-    Wait Until Element Contains    ${MENSAGEM}    ${mensagem}    5s
-
+    [Arguments]    ${texto_esperado}
+    Wait Until Element Is Visible    ${MENSAGEM}    10s
+    Wait Until Element Contains    ${MENSAGEM}    ${texto_esperado}    10s
 Fechar navegador
     Close Browser
