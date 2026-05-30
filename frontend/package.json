@@ -1,0 +1,12 @@
+{
+  "name": "cuida-frontend",
+  "version": "1.0.0",
+  "description": "Frontend mínimo do CUIDA+ para testes automatizados de interface",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.3"
+  }
+}

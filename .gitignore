@@ -1,0 +1,11 @@
+node_modules/
+npm-debug.log*
+.env
+.DS_Store
+Thumbs.db
+
+# Robot Framework - arquivos gerados localmente
+robot-tests/output.xml
+robot-tests/log.html
+robot-tests/report.html
+robot-tests/selenium-screenshot-*.png

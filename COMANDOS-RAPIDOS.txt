@@ -1,0 +1,19 @@
+PASSO 1 - BACKEND
+cd backend
+npm install
+npm start
+
+PASSO 2 - FRONTEND
+cd frontend
+npm install
+npm start
+
+PASSO 3 - POSTMAN
+Importar o arquivo:
+postman/CUIDA.postman_collection.json
+
+PASSO 4 - ROBOT FRAMEWORK
+pip install -r robot-tests/requirements.txt
+cd robot-tests
+robot cadastro_usuario.robot
+robot cadastro_idoso.robot
