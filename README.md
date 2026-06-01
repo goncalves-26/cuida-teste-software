@@ -1,125 +1,80 @@
 # CUIDA+ — Teste de Software
 
-Projeto acadêmico da disciplina **Teste de Software**, desenvolvido para apoiar a documentação e execução dos testes da atividade.
+Projeto acadêmico da disciplina **Teste de Software**, desenvolvido para apoiar a documentação e execução dos testes da atividade **N2 AT1** e da entrega final do projeto.
 
 O sistema **CUIDA+** tem como tema o cuidado familiar compartilhado da saúde de idosos.
 
-## Objetivo
-
-Este repositório contém um MVP simples utilizado para executar:
-
-* testes de API com Postman;
-* testes automatizados de interface com Robot Framework e SeleniumLibrary;
-* evidências dos testes documentados na Wiki.
-
-A documentação principal do trabalho está disponível na aba **Wiki** deste repositório.
-
-## Estrutura do projeto
-
-```text
-backend/            API em Node.js/Express
-frontend/           Telas do sistema
-postman/            Collection dos testes de API
-robot-tests/        Testes automatizados de interface
-teste evidencias/   Prints e evidências dos testes
-```
-
-## Como executar o sistema
-
-### 1. Back-end
-
-Abra um terminal na pasta `backend` e execute:
-
-```bash
-npm install
-npm start
-```
-
-A API ficará disponível em:
-
-```text
-http://localhost:8080
-```
-
-### 2. Front-end
-
-Abra outro terminal na pasta `frontend` e execute:
-
-```bash
-npm install
-npm start
-```
-
-O sistema ficará disponível em:
-
-```text
-http://localhost:3000
-```
-
 ## Funcionalidades disponíveis
 
-* Cadastro de usuário;
-* Cadastro de idoso;
-* Login de usuário.
+- Cadastro de usuário/familiar responsável;
+- Login simples;
+- Cadastro de idoso;
+- Consulta/listagem de idosos;
+- Cadastro de medicamentos;
+- Registro de cuidados;
+- Resumo geral do sistema.
 
-## Testes de API
+## Como executar
 
-Os testes de API foram executados no **Postman**.
+Backend:
 
-Endpoints testados:
+```bash
+cd backend
+npm install
+node server.js
+```
+
+Frontend:
+
+```bash
+cd frontend
+npm install
+node server.js
+```
+
+## Telas
+
+```text
+http://localhost:3000/cadastro
+http://localhost:3000/login
+http://localhost:3000/idosos/novo
+http://localhost:3000/idosos
+http://localhost:3000/medicamentos/novo
+http://localhost:3000/cuidados/novo
+```
+
+## Endpoints
 
 ```text
 POST /api/usuarios
-POST /api/idosos
+GET  /api/usuarios
 POST /api/login
+POST /api/idosos
+GET  /api/idosos
+POST /api/medicamentos
+GET  /api/medicamentos
+POST /api/cuidados
+GET  /api/cuidados
+GET  /api/relatorios/resumo
 ```
 
-Testes documentados:
+## Testes
 
-* CT-API-01 — Cadastro de usuário;
-* CT-API-03 — Cadastro de idoso;
-* CT-API-LOGIN-01 — Login válido;
-* CT-API-LOGIN-02 — Usuário não encontrado.
+Collections do Postman:
 
-## Testes de Interface
-
-Os testes de interface foram executados com **Robot Framework** e **SeleniumLibrary**.
-
-Para instalar as dependências:
-
-```bash
-python -m pip install -r robot-tests/requirements.txt
+```text
+postman/CUIDA.postman_collection_corrigida.json
+postman/CUIDA.postman_collection_ampliada.json
 ```
 
-Para executar os testes:
+Testes Robot Framework:
 
 ```bash
+cd robot-tests
 python -m robot cadastro_usuario.robot
 python -m robot cadastro_idoso.robot
 python -m robot login.robot
+python -m robot medicamentos.robot
+python -m robot cuidados.robot
+python -m robot lista_idosos.robot
 ```
-
-Testes documentados:
-
-* CT-UI-01 — Cadastro de usuário pela interface;
-* CT-UI-03 — Cadastro de idoso pela interface;
-* CT-UI-LOGIN-01 — Usuário não encontrado;
-* CT-UI-LOGIN-02 — Login realizado com sucesso.
-
-## Evidências
-
-As evidências dos testes estão armazenadas na pasta:
-
-```text
-teste evidencias/
-```
-
-Incluindo:
-
-* evidências de API;
-* evidências de interface;
-* relatório de execução do Robot Framework.
-
-## Observação
-
-Este projeto possui finalidade acadêmica e foi desenvolvido para demonstrar a aplicação prática de técnicas de teste de software.

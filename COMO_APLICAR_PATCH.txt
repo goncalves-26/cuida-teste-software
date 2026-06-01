@@ -1,0 +1,40 @@
+PATCH - CUIDA+ MVP AMPLIADO
+
+Objetivo: ampliar o MVP CUIDA+ sem quebrar as funcionalidades já feitas:
+- Cadastro de usuário
+- Cadastro de idoso
+- Testes atuais do Postman
+- Testes atuais do Robot Framework
+
+Novas funcionalidades:
+- Login simples
+- Cadastro de medicamentos
+- Registro de cuidados
+- Consulta/listagem de idosos
+- Relatório/resumo simples
+
+Como aplicar:
+1. Baixe e extraia este ZIP.
+2. Copie as pastas backend, frontend, robot-tests e postman para dentro do projeto cuida-teste-software-mvp.
+3. Quando o Windows perguntar se deseja substituir arquivos, confirme.
+4. Abra o VS Code no projeto.
+5. Rode o backend:
+   cd backend
+   node server.js
+6. Rode o frontend em outro terminal:
+   cd frontend
+   node server.js
+7. Teste no navegador:
+   http://localhost:3000
+
+Rotas novas:
+- http://localhost:3000/login
+- http://localhost:3000/medicamentos/novo
+- http://localhost:3000/cuidados/novo
+- http://localhost:3000/idosos
+
+Depois de testar:
+git status
+git add .
+git commit -m "Amplia MVP com novas funcionalidades para testes do grupo"
+git push
