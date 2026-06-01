@@ -1,6 +1,6 @@
 # CUIDA+ — Teste de Software
 
-Projeto acadêmico da disciplina **Teste de Software**, desenvolvido para apoiar a documentação e execução dos testes da atividade 
+Projeto acadêmico da disciplina **Teste de Software**, desenvolvido para apoiar a documentação e execução dos testes da atividade.
 
 O sistema **CUIDA+** tem como tema o cuidado familiar compartilhado da saúde de idosos.
 
@@ -56,29 +56,32 @@ O sistema ficará disponível em:
 http://localhost:3000
 ```
 
+## Funcionalidades disponíveis
+
+* Cadastro de usuário;
+* Cadastro de idoso;
+* Login de usuário.
+
 ## Testes de API
 
 Os testes de API foram executados no **Postman**.
-
-Collection utilizada:
-
-```text
-postman/CUIDA.postman_collection_corrigida.json
-```
 
 Endpoints testados:
 
 ```text
 POST /api/usuarios
 POST /api/idosos
+POST /api/login
 ```
 
-Testes documentados na Wiki:
+Testes documentados:
 
 * CT-API-01 — Cadastro de usuário;
-* CT-API-03 — Cadastro de idoso.
+* CT-API-03 — Cadastro de idoso;
+* CT-API-LOGIN-01 — Login válido;
+* CT-API-LOGIN-02 — Usuário não encontrado.
 
-## Testes de interface
+## Testes de Interface
 
 Os testes de interface foram executados com **Robot Framework** e **SeleniumLibrary**.
 
@@ -88,29 +91,35 @@ Para instalar as dependências:
 python -m pip install -r robot-tests/requirements.txt
 ```
 
-Para executar os testes, mantenha o back-end e o front-end rodando. Depois, entre na pasta `robot-tests` e execute:
+Para executar os testes:
 
 ```bash
 python -m robot cadastro_usuario.robot
 python -m robot cadastro_idoso.robot
+python -m robot login.robot
 ```
 
-Testes documentados na Wiki:
+Testes documentados:
 
 * CT-UI-01 — Cadastro de usuário pela interface;
-* CT-UI-03 — Cadastro de idoso pela interface.
+* CT-UI-03 — Cadastro de idoso pela interface;
+* CT-UI-LOGIN-01 — Usuário não encontrado;
+* CT-UI-LOGIN-02 — Login realizado com sucesso.
 
 ## Evidências
 
-As evidências dos testes estão na pasta:
+As evidências dos testes estão armazenadas na pasta:
 
 ```text
 teste evidencias/
 ```
 
-As páginas da Wiki apresentam a modelagem, implementação, execução e resultados dos testes.
+Incluindo:
+
+* evidências de API;
+* evidências de interface;
+* relatório de execução do Robot Framework.
 
 ## Observação
 
 Este projeto possui finalidade acadêmica e foi desenvolvido para demonstrar a aplicação prática de técnicas de teste de software.
-
