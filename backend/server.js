@@ -106,6 +106,40 @@ app.get("/api/idosos", (req, res) => {
   return res.json({ success: true, data: idosos });
 });
 
+app.post("/api/login", (req, res) => {
+  const { email, senha } = req.body;
+
+  if (!emailValido(email)) {
+    return res.status(400).json({
+      success: false,
+      message: "E-mail inválido"
+    });
+  }
+
+  if (!senha || senha.length < 8) {
+    return res.status(400).json({
+      success: false,
+      message: "Senha inválida"
+    });
+  }
+
+  const usuario = usuarios.find(
+    u => u.email === email
+  );
+
+  if (!usuario) {
+    return res.status(401).json({
+      success: false,
+      message: "Usuário não encontrado"
+    });
+  }
+
+  return res.json({
+    success: true,
+    message: "Login realizado com sucesso"
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`API CUIDA+ rodando em http://localhost:${PORT}`);
 });

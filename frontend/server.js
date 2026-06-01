@@ -18,6 +18,10 @@ app.get("/idosos/novo", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "cadastro-idoso.html"));
 });
 
+app.get("/login", (req, res) => {
+  res.sendFile(__dirname + "/public/login.html");
+});
+
 app.listen(PORT, () => {
   console.log(`Frontend CUIDA+ rodando em http://localhost:${PORT}`);
 });
